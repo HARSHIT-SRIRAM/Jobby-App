@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Jobs from "./components/Jobs";
@@ -9,7 +9,7 @@ import JobItemDetails from "./components/JobItemDetails";
 import "./App.css";
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoute element={<Home />} />} />
@@ -21,7 +21,7 @@ const App = () => (
       <Route path="/not-found" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/not-found" />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;

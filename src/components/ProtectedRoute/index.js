@@ -1,11 +1,10 @@
+import React from "react";
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import jsCookie from "js-cookie";
 
 const ProtectedRoute = ({ element }) => {
-  const jwtToken = Cookies.get("jwt_token");
-  const isAuthenticated = !!jwtToken;
-
-  return isAuthenticated ? element : <Navigate to="/login" />;
+  const token = jsCookie.get("jwt_token");
+  return token ? element : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;
